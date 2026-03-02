@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Tonalidade</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <h1>🎸 Guia de Tonalidade</h1>
+
+    <div class="controls">
+        <select id="root-note" onchange="updateApp()">
+            <optgroup label="Naturais & Sustenidos">
+                <option value="C">C</option>
+                <option value="G">G</option>
+                <option value="D">D</option>
+                <option value="A">A</option>
+                <option value="E">E</option>
+                <option value="B">B</option>
+                <option value="F#">F#</option>
+                <option value="C#">C#</option>
+            </optgroup>
+            <optgroup label="Bemóis">
+                <option value="F">F</option>
+                <option value="Bb">Bb</option>
+                <option value="Eb">Eb</option>
+                <option value="Ab">Ab</option>
+                <option value="Db">Db</option>
+                <option value="Gb">Gb</option>
+                <option value="Cb">Cb</option>
+            </optgroup>
+        </select>
+        <select id="scale-type" onchange="updateApp()">
+            <option value="major">Escala Maior</option>
+            <option value="minor">Escala Menor</option>
+        </select>
+        <button id="tetrad-btn" onclick="toggleTetrads()">Tríades</button>
+    </div>
+
+    <div id="minor-tabs" class="tabs" style="display: none;">
+        <button class="tab active" onclick="setMinorType('minorNatural', this)">Natural</button>
+        <button class="tab" onclick="setMinorType('minorHarmonic', this)">Harmônica</button>
+        <button class="tab" onclick="setMinorType('minorMelodic', this)">Melódica</button>
+    </div>
+    
+    <div id="legends" style="display: none;">
+        <div id="legend-harmonic" class="legend-item">
+            <span class="legend-dot" style="background: var(--altered); box-shadow: 0 0 5px var(--altered);"></span>
+            Sétima Maior (7M)
+        </div>
+        <div id="legend-melodic" class="legend-item" style="display: none;">
+            <span class="legend-dot" style="background: var(--altered-2); box-shadow: 0 0 5px var(--altered-2);"></span>
+            Sexta Maior (6M)
+        </div>
+    </div>
+
+    <div class="fretboard-container"><div class="fretboard" id="fretboard"></div></div>
+    
+    <div id="harmonic-sequences-wrapper" style="width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center;"></div>
+
+    <div id="chord-overlay" class="overlay" onclick="closeOverlay()">
+        <div class="overlay-content" onclick="event.stopPropagation()">
+            <h2 id="modal-title" style="margin:0; font-size: 2rem; color: var(--tonic);"></h2>
+            <p id="modal-subtitle" style="color: #888; margin-bottom: 20px; text-transform: uppercase; font-size: 0.85rem;"></p>
+            <div id="caged-grid" class="caged-grid"></div>
+            <div id="modal-legend" style="display:flex; justify-content:center; gap:15px; margin-top:20px; font-size:0.75rem; color:#aaa;"></div>
+            <p style="font-size: 0.7rem; color: #444; margin-top: 15px;">Clique fora para fechar</p>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

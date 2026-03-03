@@ -408,6 +408,13 @@ function updateApp() {
     const board = document.getElementById('fretboard'); board.innerHTML = '';
     tuning.forEach(s => {
         const row = document.createElement('div'); row.className = 'string';
+
+        // NOVO: Adiciona a nota de afinação à esquerda
+        const tuningDiv = document.createElement('div');
+        tuningDiv.className = 'tuning-note';
+        tuningDiv.innerText = notesSharp[s]; // Pega o nome da nota base
+        row.appendChild(tuningDiv);
+
         for(let f=0; f<=15; f++) {
             const nIdx = (s+f)%12; 
             const fret = document.createElement('div'); fret.className = 'fret';

@@ -63,9 +63,11 @@
     <div class="fretboard-container"><div class="fretboard" id="fretboard"></div></div>
     
     <div id="harmonic-sequences-wrapper" style="width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center;"></div>
+    <div id="mobile-chord-display" class="mobile-chord-display" style="display: none;"></div>
 
     <div id="chord-overlay" class="overlay" onclick="closeOverlay()">
         <div class="overlay-content" onclick="event.stopPropagation()">
+            <button class="close-modal-btn" onclick="closeOverlay()">×</button>
             <h2 id="modal-title" style="margin:0; font-size: 2rem; color: var(--tonic);"></h2>
             <div id="modal-chord-notes" style="font-size: 1.1rem; color: #fff; margin: 5px 0 10px 0; letter-spacing: 2px;"></div>
             <p id="modal-subtitle" style="color: #888; margin-bottom: 20px; text-transform: uppercase; font-size: 0.85rem;"></p>

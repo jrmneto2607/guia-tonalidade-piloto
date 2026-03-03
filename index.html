@@ -39,6 +39,8 @@
         <button id="tetrad-btn" onclick="toggleTetrads()">Tríades</button>
     </div>
 
+    <h2 id="dynamic-title" style="text-align: center; color: var(--tonic); margin-top: 0; margin-bottom: 15px; font-size: 1.5rem;"></h2>
+
     <div id="minor-tabs" class="tabs" style="display: none;">
         <button class="tab active" onclick="setMinorType('minorNatural', this)">Natural</button>
         <button class="tab" onclick="setMinorType('minorHarmonic', this)">Harmônica</button>
@@ -56,6 +58,8 @@
         </div>
     </div>
 
+    <div id="scale-display" class="scale-display"></div>
+
     <div class="fretboard-container"><div class="fretboard" id="fretboard"></div></div>
     
     <div id="harmonic-sequences-wrapper" style="width: 100%; max-width: 900px; display: flex; flex-direction: column; align-items: center;"></div>
@@ -63,6 +67,7 @@
     <div id="chord-overlay" class="overlay" onclick="closeOverlay()">
         <div class="overlay-content" onclick="event.stopPropagation()">
             <h2 id="modal-title" style="margin:0; font-size: 2rem; color: var(--tonic);"></h2>
+            <div id="modal-chord-notes" style="font-size: 1.1rem; color: #fff; margin: 5px 0 10px 0; letter-spacing: 2px;"></div>
             <p id="modal-subtitle" style="color: #888; margin-bottom: 20px; text-transform: uppercase; font-size: 0.85rem;"></p>
             <div id="caged-grid" class="caged-grid"></div>
             <div id="modal-legend" style="display:flex; justify-content:center; gap:15px; margin-top:20px; font-size:0.75rem; color:#aaa;"></div>
